@@ -1,7 +1,5 @@
-
 {
   "name": "angular-pageready",
-  "version": "1.0",
   "main": "pageready.js",
   "ignore": [
     "index.html"
