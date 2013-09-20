@@ -13,7 +13,7 @@
 
         $scope.$on('pageModuleLoaded', function() {
           if(++$scope.moduleCount >= $attrs.smnPageready) {
-            $element.attr('data-status', 'ready');
+            document.body.setAttribute('data-status', 'ready');
             $scope.$emit('pageReady');
             $scope.$broadcast('pageReady');
           }
