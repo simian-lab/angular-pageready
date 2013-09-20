@@ -1,0 +1,12 @@
+
+{
+  "name": "angular-pageready",
+  "version": "1.0",
+  "main": "pageready.js",
+  "ignore": [
+    "index.html"
+  ],
+  "dependencies": {
+    "angular": ">= 1.0.8"
+  }
+}

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Pageready test page</title>
+</head>
+<body ng-app='pageReadyDemo'>
+	<div ng-controller='testPageCtrl'>
+		<div smn-pageready="1">
+			<test></test>
+			This page is {{ready}}
+		</div>
+	</div>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+  <script src="pageready.js"></script>
+
+  <script>
+  	angular.module('pageReadyDemo', ['simian.pageReady'])
+  		.directive('test', function factory($window) {
+  			return {
+  				restrict: 'E',
+		      replace: true,
+		      scope: true,
+  				link: function($scope, $element, $attrs) {
+	  				setTimeout(function() {
+	  					$scope.$emit('pageModuleLoaded');
+	  				}, 5000);
+	  			}
+  			}
+  		})
+
+  		.controller('testPageCtrl', function ($scope) {
+  			$scope.ready = 'not ready for 5 seconds.';
+
+  			$scope.$on('pageReady', function() {
+  				$scope.ready = 'ready! :)';
+  				$scope.$apply();
+  			});
+
+  		});
+  </script>
+</body>
+</html>
